@@ -7,7 +7,7 @@ import { Card } from "react-bootstrap";
 import { TiDeleteOutline } from "react-icons/ti";
 
 export default function CardBook(props) {
-  const { book, iconDelete, tekan } = props;
+  const { book, iconDelete, click } = props;
   const history = useHistory();
   const [modalShow, setModalShow] = useState(false);
   const [state, dispatch] = useContext(UserContext);
@@ -36,7 +36,7 @@ export default function CardBook(props) {
           <TiDeleteOutline size="2em" color="red" onClick={handleDeleteMyList} />
         ) : null}
       </div>
-      <div onClick={() => (tekan ? handleToDetail() : history.push("/home-admin"))}>
+      <div onClick={() => (click ? handleToDetail() : history.push("/home-admin"))}>
         <Card style={{ width: "13em", border: "none", borderRadius: "12px", height: "25em" }}>
           <Card.Img
             variant="top"

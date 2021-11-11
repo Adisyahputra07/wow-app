@@ -115,7 +115,7 @@ export default function Profile() {
                     ) : (
                       books.map((item) => (
                         <div class="col-3 mt-2 mb-5">
-                          {<CardBook book={item.Books} iconDelete={true} tekan={false} />}
+                          {<CardBook book={item.Books} iconDelete={true} click={true} />}
                         </div>
                       ))
                     )}

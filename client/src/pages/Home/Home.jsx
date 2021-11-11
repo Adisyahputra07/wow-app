@@ -41,7 +41,7 @@ export default function Home() {
                 <div className="row" style={{ margin: "none !important" }}>
                   {books.map((item) => (
                     <div class="col-3 mt-2 mb-5" key={item.id}>
-                      <CardBook book={item} iconDelete={false} tekan={true} />
+                      <CardBook book={item} iconDelete={false} click={true} />
                     </div>
                   ))}
                 </div>
