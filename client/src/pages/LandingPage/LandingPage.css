@@ -1,0 +1,31 @@
+.landing-page-container {
+  height: 100vh;
+  background: url(../../assets/bg.svg);
+  background-position: right bottom;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+.main {
+  width: 460px;
+  margin-left: 5em;
+}
+
+.logo {
+  width: 340px;
+  margin-top: 40px;
+}
+
+.text-intro {
+  margin-top: -45px;
+  font-size: 20px;
+}
+
+.button-container {
+  margin-top: 70px;
+  display: flex;
+}
+
+.submain {
+  margin-left: 20px;
+}

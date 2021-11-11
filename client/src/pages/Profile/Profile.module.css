@@ -1,0 +1,89 @@
+.homeContainer {
+  display: flex;
+  margin-left: 36px;
+  margin-right: 36px;
+}
+
+.sideJombotron {
+  margin-top: 46px;
+  flex: 3;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-left: 30px;
+}
+
+.jumbotron {
+  background-color: #ffd9d9;
+  width: 100%;
+  height: 23em;
+  border-radius: 10px;
+  margin: 30px auto;
+  display: flex;
+}
+
+.contactUser {
+  flex: 2;
+  padding: 40px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.listContact {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.listContact p {
+  font-weight: bold;
+  margin: 0;
+}
+
+.listContact span {
+  font-size: 15px;
+  color: #8a8c90;
+}
+
+.iconList {
+  margin-left: 15px;
+  margin-top: -3px;
+}
+
+.avatarUser {
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.avatarUser img {
+  margin-top: 23px;
+  border-radius: 5px;
+  height: 215px;
+  width: 215px;
+  object-fit: cover;
+}
+
+.btn {
+  background-color: #d60000;
+  border: 1px solid #d60000;
+  margin-top: 20px;
+  width: 227px;
+  height: 50px;
+  border-radius: 5px;
+}
+/* card */
+
+.iconBook {
+  width: 240px;
+  height: 240px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.titleCard {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 30px;
+}

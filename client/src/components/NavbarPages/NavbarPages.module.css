@@ -1,0 +1,21 @@
+.dropdownMenu::after {
+  content: url(../../assets/Polygon1.png);
+  position: absolute;
+  left: 8.5em;
+  top: -1em;
+  z-index: -1;
+}
+
+.dropdownMenu {
+  filter: drop-shadow(0px 0px 8px grey);
+  border: none;
+  border-radius: 9px;
+}
+
+.ddToggle::after {
+  display: none;
+}
+
+.ddToggle {
+  box-shadow: none !important;
+}
