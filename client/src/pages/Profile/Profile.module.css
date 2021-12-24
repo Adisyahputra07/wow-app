@@ -68,12 +68,21 @@
   background-color: #d60000;
   border: 1px solid #d60000;
   margin-top: 20px;
-  width: 227px;
+  margin-left: 17px;
+  width: 130px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.btnEdit {
+  background-color: #4b8754;
+  border: 1px solid #4b8754;
+  margin-top: 20px;
+  width: 130px;
   height: 50px;
   border-radius: 5px;
 }
 /* card */
-
 .iconBook {
   width: 240px;
   height: 240px;
@@ -83,7 +92,16 @@
 
 .titleCard {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   font-weight: bold;
   font-size: 30px;
+}
+
+.lengthBooks {
+  border-radius: 50%;
+  background-color: #d60000;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffd9d9;
 }

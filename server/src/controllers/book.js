@@ -1,22 +1,36 @@
 const { Book } = require("../../models");
+const redisClient = require("../modules/redis");
+const key = "books";
 
 // get allbooks
 exports.getBooks = async (req, res) => {
   try {
-    const books = await Book.findAll({
-      attributes: {
-        exclude: ["updatedAt", "createdAt"],
-      },
-    });
+    const dataRedis = await redisClient.get(key);
 
-    res.send({
-      status: "success",
-      // data: { books },
-      books,
-    });
+    if (dataRedis !== null) {
+      res.status(200).send({
+        status: "success",
+        masssage: "data redis",
+        books: JSON.parse(dataRedis),
+      });
+    } else {
+      const books = await Book.findAll({
+        attributes: {
+          exclude: ["updatedAt", "createdAt"],
+        },
+      });
+
+      res.status(200).send({
+        status: "success",
+        masssage: "data database",
+        books: books,
+      });
+
+      await redisClient.set(key, JSON.stringify(books));
+    }
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
       message: "Server error",
     });
@@ -34,13 +48,13 @@ exports.getBook = async (req, res) => {
       },
     });
 
-    res.send({
+    res.status(200).send({
       status: "success",
       data: { book },
     });
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
       message: "Server error",
     });
@@ -56,14 +70,18 @@ exports.addBook = async (req, res) => {
   try {
     await Book.create(data);
 
-    res.send({
+    await redisClient.del(key, () => {
+      console.log("sukses delete key");
+    });
+
+    res.status(200).send({
       book: { data },
       status: "success",
       message: "Add Book success",
     });
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
       message: "Server error",
     });
@@ -85,14 +103,14 @@ exports.updateBook = async (req, res) => {
       where: { id },
     });
 
-    res.send({
+    res.status(200).send({
       status: "success",
       message: `Update Book id: ${id} success`,
       data: req.body,
     });
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
       message: "Server error",
     });
@@ -107,13 +125,13 @@ exports.deleteBook = async (req, res) => {
       where: { id },
     });
 
-    res.send({
+    res.status(200).send({
       status: "success",
       message: `Delete Book with id ${id} success`,
     });
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
       message: "Server error",
     });

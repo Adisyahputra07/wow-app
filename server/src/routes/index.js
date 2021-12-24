@@ -6,7 +6,7 @@ const { uploadFile } = require("../middlewares/uploadFile");
 const router = express.Router();
 
 //Controller user
-const { getUsers, getUser, updateUser, deleteUser, getProfile } = require("../controllers/user");
+const { getUsers, getUser, updateUser, deleteAccount, getProfile } = require("../controllers/user");
 const { login, register } = require("../controllers/auth");
 
 //Controller Books
@@ -29,10 +29,10 @@ router.post("/login", login);
 router.post("/register", register);
 router.get("/user", auth, admin, getUsers);
 router.get("/user/:id", auth, admin, getUser);
+router.delete("/user", auth, deleteAccount);
 //
 router.get("/profile", auth, getProfile);
 router.patch("/profile/:id", auth, uploadFile("image"), updateUser);
-router.delete("/user/:id", auth, admin, deleteUser);
 
 //init route controller Book
 router.get("/books", getBooks);

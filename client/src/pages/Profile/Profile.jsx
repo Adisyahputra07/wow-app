@@ -30,6 +30,19 @@ export default function Profile() {
     setBooks(response.data.data);
   };
 
+  const deleteAccount = async () => {
+    try {
+      await API.delete("/user");
+
+      dispatch({
+        type: "LOGOUT",
+      });
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getBooks();
   }, [state.isUpdate]);
@@ -68,7 +81,6 @@ export default function Profile() {
                 <div className={HomeCss.listContact}>
                   <img src={map} alt="map" />
                   <div className={HomeCss.iconList}>
-                    <p>{state.user.address}</p>
                     <p>{state.user.address === null ? "-" : state.user.address}</p>
                     <span>Address</span>
                   </div>
@@ -85,8 +97,11 @@ export default function Profile() {
                       className={HomeCss.avatar}
                     />
                   </div>
-                  <button onClick={() => setModalShow(true)} className={HomeCss.btn}>
+                  <button onClick={() => setModalShow(true)} className={HomeCss.btnEdit}>
                     Edit Profile
+                  </button>
+                  <button onClick={deleteAccount} className={HomeCss.btn}>
+                    Delete Account
                   </button>
                 </div>
               </div>
@@ -99,6 +114,7 @@ export default function Profile() {
                   <div className="row mt-1">
                     <div className="col">
                       <h3 className={HomeCss.titleCard}>My List Book</h3>
+                      <span className={HomeCss.lengthBooks}>{books.length}</span>
                     </div>
                   </div>
                   <div className="row">
@@ -114,7 +130,7 @@ export default function Profile() {
                       </center>
                     ) : (
                       books.map((item) => (
-                        <div class="col-3 mt-2 mb-5">
+                        <div class="col-3 mt-4 mb-5">
                           {<CardBook book={item.Books} iconDelete={true} click={true} />}
                         </div>
                       ))

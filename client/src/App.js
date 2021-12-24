@@ -16,6 +16,7 @@ import AddBook from "./pages/AddBook/AddBook";
 import DetailReadbook from "./pages/DetailReadbook/DetailReadbook";
 import ReadBook from "./pages/read-books/ReadBook";
 import { HomeAdmin } from "./pages/HomeAdmin/HomeAdmin";
+import Chats from "./pages/Chats/Chats";
 
 // FakeData
 
@@ -55,6 +56,7 @@ function App() {
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/subscribe" component={PageSubscribe} />
         <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/chats" component={Chats} />
         <PrivateRoute exact path="/detail-readbook/:id" component={DetailReadbook} />
         <PrivateRoute exact path="/readbook/:id" component={ReadBook} />
         <AdminRoute exact path="/income-transaction" component={IncomeTransaction} />

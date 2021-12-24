@@ -101,27 +101,6 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// Delet user
-exports.deleteUser = async (req, res) => {
-  try {
-    const { id } = req.params;
-    await User.destroy({
-      where: { id },
-    });
-
-    res.send({
-      status: "success",
-      message: `Delete user id ${id} success`,
-    });
-  } catch (error) {
-    console.log(error);
-    res.send({
-      status: "failed",
-      message: "Server error",
-    });
-  }
-};
-
 // getProfile
 exports.getProfile = async (req, res) => {
   const id = req.idUser;
@@ -143,5 +122,22 @@ exports.getProfile = async (req, res) => {
       status: "failed",
       message: "Server error",
     });
+  }
+};
+
+exports.deleteAccount = async (req, res) => {
+  try {
+    const id = req.idUser;
+
+    User.destroy({
+      where: { id },
+    });
+
+    res.send({
+      status: "success",
+      message: `Delete Account Where id ${id} success`,
+    });
+  } catch (error) {
+    console.log(error);
   }
 };

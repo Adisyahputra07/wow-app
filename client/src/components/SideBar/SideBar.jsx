@@ -8,6 +8,7 @@ import iconJumbotron from "../../assets/Icon-jumbotron.png";
 import user1 from "../../assets/user1.png";
 import bill1 from "../../assets/bill1.png";
 import logout1 from "../../assets/logout1.png";
+import iconChats from "../../assets/chat.png";
 import HomeCss from "./SideBar.module.css";
 import ModalValidasi from "../ModalValidasi/ModalValidasi";
 import Loading from "../../pages/Loading/Loading";
@@ -91,6 +92,10 @@ export default function SideBar(props) {
           <div onClick={() => history.push("/subscribe")} className={HomeCss.navLinkSideBar}>
             <img src={bill1} alt="bill1" />
             <span className={HomeCss.cursor}>Subscribe</span>
+          </div>
+          <div onClick={() => history.push("/chats")} className={HomeCss.navLinkSideBar}>
+            <img heigh="28px" width="28px" src={iconChats} alt="bill1" />
+            <span className={HomeCss.cursor}>Chats</span>
           </div>
         </div>
         <div className={HomeCss.navLogoutSideBar}>
