@@ -107,7 +107,7 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* Card */}
+            {/* Cards */}
             <div className={HomeCss.listCard}>
               <section>
                 <div>
