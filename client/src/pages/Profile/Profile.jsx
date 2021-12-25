@@ -82,7 +82,7 @@ export default function Profile() {
                   <img src={map} alt="map" />
                   <div className={HomeCss.iconList}>
                     <p>{state.user.address === null ? "-" : state.user.address}</p>
-                    <span>Address</span>
+                    <span>address</span>
                   </div>
                 </div>
               </div>
